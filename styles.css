@@ -117,28 +117,6 @@ section:nth-child(even) {
     min-width: 200px;
 }
 
-.skills-box {
-    background: #222426;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 20px 0;
-    border-left: 4px solid #4aa3df;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.skills-box p {
-    margin-top: 0;
-}
-
-.skills-box ul {
-    margin-left: 20px;
-    padding-left: 0;
-}
-
-.skills-box li {
-    margin-bottom: 5px;
-}
-
 .project {
     background: #222426;
     padding: 15px;
