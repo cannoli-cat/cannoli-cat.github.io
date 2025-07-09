@@ -9,46 +9,82 @@
 </head>
 
 <body>
-    <header>
-        <h1>Tyler Wolfe</h1>
-        <p>Unity Developer & Programmer</p>
-    </header>
-
-    <div class="container">
-        <section>
-            <h2>About Me</h2>
-            <p>...</p>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-
-            <div class="project">
-                <h3>Procedural Animation System</h3>
-                <p>Second-order dynamics procedural animation system implemented in Unity C# for natural motion
-                    smoothing.</p>
-                <a href="#">View on GitHub</a>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="name">Tyler Wolfe</span><br>
+                <span class="subtitle">Game Design Portfolio</span>
             </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <div class="project">
-                <h3>Dithering & Palette Shader</h3>
-                <p>Full-screen stylized dithering shader with palette swapping and procedural pixel art nebula
-                    generation.</p>
-                <a href="#">View on GitHub</a>
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <img src="images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" />
+            <div class="about-text">
+                <p>Hi, I’m a Unity game developer and computer science student at Arizona State University. I’ve
+                    been
+                    programming since I was 14, with a passion for creating games and tools in Unity with C#. I
+                    specialize
+                    in gameplay mechanics, systems programming, and tool development to help make games run smoother
+                    and
+                    development faster.
+                </p>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Games</h2>
-            <iframe src="https://cannolicat.itch.io" width="100%" height="400" frameborder="0"></iframe>
-        </section>
-    </div>
+        <div class="skills-box">
+            <p>What I can help you with:</p>
+            <ul>
+                <li>Unity gameplay systems and mechanics</li>
+                <li>Bug fixing and optimization</li>
+                <li>UI implementation and polish</li>
+                <li>Custom Unity editor tools for workflow improvement</li>
+                <li>Rapid prototyping of game ideas</li>
+            </ul>
+        </div>
 
-    <footer>
+        <p style="text-align: center; font-style: italic;">
+            I’m dedicated to delivering clean, reliable code and ensuring clear communication throughout every
+            project. <br>Let’s work together to bring your ideas to life efficiently and professionally!
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Procedural Animation System</h3>
+            <p>Second-order dynamics procedural animation system implemented in Unity C# for natural motion
+                smoothing.</p>
+            <a href="#">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>Dithering & Palette Shader</h3>
+            <p>Full-screen stylized dithering shader with palette swapping and procedural pixel art nebula
+                generation.</p>
+            <a href="#">View on GitHub</a>
+        </div>
+    </section>
+
+    <section id="games">
+        <h2>Games</h2>
+        <p>View all my games on <a href="https://cannolicat.itch.io" target="_blank">itch.io</a>.</p>
+    </section>
+
+    <section id="contact">
         <p>Contact: <a href="mailto:wolfetyler0115@gmail.com">wolfetyler0115@gmail.com</a> |
             <a href="https://www.linkedin.com/in/tyler-wolfe-24981124a">LinkedIn</a>
         </p>
-    </footer>
+    </section>
 </body>
 
 </html>
