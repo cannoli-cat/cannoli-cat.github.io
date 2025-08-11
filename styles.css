@@ -132,8 +132,8 @@ footer {
     color: #aaa;
 }
 
-.games-scroll {
-    display: flex;
+section#games .games-scroll {
+    display: flex !important;
     gap: 20px;
     overflow-x: auto;
     padding-bottom: 10px;
@@ -154,7 +154,7 @@ footer {
     border-radius: 4px;
 }
 
-.games-scroll iframe {
+section#games .games-scroll iframe {
     flex: 0 0 auto;
     border-radius: 8px;
     border: 2px solid #333;
