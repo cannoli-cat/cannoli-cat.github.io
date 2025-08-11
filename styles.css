@@ -131,3 +131,32 @@ footer {
     font-size: 0.9em;
     color: #aaa;
 }
+
+.games-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #4aa3df #181a1b;
+}
+
+.games-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.games-scroll::-webkit-scrollbar-track {
+    background: #181a1b;
+}
+
+.games-scroll::-webkit-scrollbar-thumb {
+    background: #4aa3df;
+    border-radius: 4px;
+}
+
+.games-scroll iframe {
+    flex: 0 0 auto;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background: #222;
+}
