@@ -27,7 +27,7 @@
     <section id="about">
         <h2>About Me</h2>
         <div class="about-container">
-            <img src="images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" />
+            <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" />
             <div class="about-text">
                 <p>Hi, my name is Tyler Wolfe! I’m a Unity game developer and computer science student at Arizona State
                     University. I’ve
@@ -42,19 +42,38 @@
     <section id="projects">
         <h2>Projects</h2>
 
-        <div class="project">
-            <h3>Procedural Animation System</h3>
-            <p>Second-order dynamics procedural animation system implemented in Unity C# for natural motion
-                smoothing.</p>
-            <a href="#">View on GitHub</a>
-        </div>
+        <article class="project">
+            <div class="project-media">
+                <video class="project-video" autoplay muted loop playsinline preload="metadata"
+                    poster="docs/images/ditherdemo_poster.jpg">
+                    <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
+                </video>
+            </div>
 
-        <div class="project">
-            <h3>Stylized Pixel Art Shaders</h3>
-            <p>A collection of stylized shaders for Unity, including dithering with posterization, palette swapping,
-                sharpness filtering, and procedural pixel-art effects such as planets and nebulae</p>
-            <a href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">View on GitHub</a>
-        </div>
+            <div class="project-body">
+                <h3>Stylized Pixel Art Shaders</h3>
+                <p>A collection of stylized shaders for Unity, including dithering with posterization,
+                    palette swapping, sharpness filtering, and procedural pixel-art effects (planets, nebulae).</p>
+                <a class="btn" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">View on GitHub</a>
+            </div>
+        </article>
+
+        <article class="project">
+            <div class="project-media">
+                <video class="project-video" autoplay muted loop playsinline preload="metadata"
+                    poster="docs/images/procanim_poster.jpg">
+                    <source src="docs/videos/procanim_demo.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="project-body">
+                <h3>Procedural Animation System</h3>
+                <p>Second-order dynamics procedural animation system implemented in Unity C# for natural motion
+                    smoothing.
+                </p>
+                <a class="btn" href="#">View on GitHub</a>
+            </div>
+        </article>
     </section>
 
     <section id="games">
