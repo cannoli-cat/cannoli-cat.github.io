@@ -29,11 +29,12 @@
         <div class="about-container">
             <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" />
             <div class="about-text">
-                <p>Hi, my name is Tyler Wolfe! I’m a Unity game developer and computer science student at Arizona State
-                    University. I’ve
-                    been programming since I was 14, with a passion for creating games and tools in Unity with C#.
-                    I love to create gameplay mechanics, systems, and tools that not only make games run smoother, but
-                    make development faster.
+                <p>Hi, I'm Tyler Wolfe. I create games and game development tools in
+                    Unity with a focus on procedural generation, stylized rendering, and systems that give developers
+                    more freedom to create.
+                    I'm especially drawn to problems where a little extra engineering can save hours of manual work.
+                    My goal is to not only make development faster and easier, but also to empower creators to make more
+                    ambitious and unique projects.
                 </p>
             </div>
         </div>
@@ -42,36 +43,69 @@
     <section id="projects">
         <h2>Projects</h2>
 
-        <article class="project">
+        <article class="project-card">
             <div class="project-media">
-                <video class="project-video" autoplay muted loop playsinline preload="metadata"
-                    poster="docs/images/ditherdemo_poster.jpg">
+                <video autoplay muted loop playsinline preload="metadata" poster="docs/images/ditherdemo_poster.jpg">
                     <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
                 </video>
+                <span class="badge">Preview</span>
             </div>
 
             <div class="project-body">
-                <h3>Stylized Pixel Art Shaders</h3>
-                <p>A collection of stylized shaders for Unity, including dithering with posterization,
-                    palette swapping, sharpness filtering, and procedural pixel-art effects (planets, nebulae).</p>
-                <a class="btn" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">View on GitHub</a>
+                <header class="project-header">
+                    <h3 class="project-title">Stylized Pixel Art Shaders</h3>
+                    <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">
+                        View on GitHub
+                    </a>
+                </header>
+
+                <p class="blurb">
+                    A collection of stylized shaders for Unity with dithering, palette swapping,
+                    sharpness filtering, and procedural pixel-art effects.
+                </p>
+
+                <dl class="kv">
+                    <dt>Why</dt>
+                    <dd>Pixel-art effects often need hand-drawn assets or separate tools which slows iteration.</dd>
+                    <dt>What</dt>
+                    <dd>Real-time shaders for dithering, palette swaps, sharpness, plus procedural generators.</dd>
+                    <dt>Impact</dt>
+                    <dd>Offloads work to the GPU which means faster look-dev and experimentation.</dd>
+                </dl>
             </div>
         </article>
 
-        <article class="project">
+        <article class="project-card">
             <div class="project-media">
-                <video class="project-video" autoplay muted loop playsinline preload="metadata"
-                    poster="docs/images/procanim_poster.jpg">
+                <video autoplay muted loop playsinline preload="metadata" poster="docs/images/procanim_poster.jpg">
                     <source src="docs/videos/procanim_demo.mp4" type="video/mp4">
                 </video>
+                <span class="badge">Preview</span>
             </div>
 
             <div class="project-body">
-                <h3>Procedural Animation System</h3>
-                <p>Second-order dynamics procedural animation system implemented in Unity C# for natural motion
-                    smoothing.
+                <header class="project-header">
+                    <h3 class="project-title">Procedural Animation System</h3>
+                    <a class="btn project-cta" href="https://github.com/cannoli-cat/second-order-animation">
+                        View on GitHub
+                    </a>
+                </header>
+
+                <p class="blurb">
+                    A system for natural motion smoothing using second-order dynamics which adds lifelike lag and
+                    overshoot without extra keyframes.
                 </p>
-                <a class="btn" href="#">View on GitHub</a>
+
+                <dl class="kv">
+                    <dt>Why</dt>
+                    <dd>Keyframed motion can feel rigid without a professional and takes a lot of time to tweak.</dd>
+                    <dt>What</dt>
+                    <dd>A tunable spring–damper filter that drives position & rotation toward a target in real time,
+                        adding smooth, inertial
+                        motion with no extra keyframes.</dd>
+                    <dt>Impact</dt>
+                    <dd>More lifelike motion with less manual tweaking.</dd>
+                </dl>
             </div>
         </article>
     </section>
