@@ -43,71 +43,123 @@
     <section id="projects">
         <h2>Projects</h2>
 
-        <article class="project-card">
-            <div class="project-media">
-                <video autoplay muted loop playsinline preload="metadata" poster="docs/images/ditherdemo_poster.jpg">
-                    <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
-                </video>
-                <span class="badge">Preview</span>
+        <div class="carousel" aria-roledescription="carousel">
+            <div class="carousel-track" role="group" aria-label="Project slides">
+                <article class="project-card slide" aria-roledescription="slide" aria-label="1 of 3">
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline preload="metadata"
+                            poster="docs/images/ditherdemo_poster.jpg">
+                            <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
+                    </div>
+
+                    <div class="project-body">
+                        <header class="project-header">
+                            <h3 class="project-title">Stylized Pixel Art Shaders</h3>
+                            <a class="btn project-cta"
+                                href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">
+                                View on GitHub
+                            </a>
+                        </header>
+
+                        <p class="blurb">
+                            A collection of stylized shaders for Unity with dithering, palette swapping,
+                            sharpness filtering, and procedural pixel-art effects.
+                        </p>
+
+                        <dl class="kv">
+                            <dt>Why</dt>
+                            <dd>Pixel-art effects often need hand-drawn assets or separate tools which slows iteration.
+                            </dd>
+                            <dt>What</dt>
+                            <dd>Real-time shaders for dithering, palette swaps, sharpness, plus procedural generators.
+                            </dd>
+                            <dt>Impact</dt>
+                            <dd>Offloads work to the GPU which means faster look-dev and experimentation.</dd>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project-card slide" aria-roledescription="slide" aria-label="2 of 3">
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline preload="metadata"
+                            poster="docs/images/procanim_poster.jpg">
+                            <source src="docs/videos/procanim_demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
+                    </div>
+
+                    <div class="project-body">
+                        <header class="project-header">
+                            <h3 class="project-title">Procedural Animation System</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/second-order-animation">
+                                View on GitHub
+                            </a>
+                        </header>
+
+                        <p class="blurb">
+                            A system for natural motion smoothing using second-order dynamics which adds lifelike lag
+                            and
+                            overshoot without extra keyframes.
+                        </p>
+
+                        <dl class="kv">
+                            <dt>Why</dt>
+                            <dd>Keyframed motion can feel rigid without a professional and takes a lot of time to tweak.
+                            </dd>
+                            <dt>What</dt>
+                            <dd>A tunable spring-damper filter that drives position & rotation toward a target in real
+                                time,
+                                adding smooth, inertial motion with no extra keyframes.</dd>
+                            <dt>Impact</dt>
+                            <dd>More lifelike motion with less manual tweaking.</dd>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 3">
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline preload="metadata"
+                            poster="docs/images/scriptinglang_poster.jpg">
+                            <source src="docs/videos/scriptinglang_demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
+                    </div>
+
+                    <div class="project-body">
+                        <header class="project-header">
+                            <h3 class="project-title">Lightweight In-Game Scripting Language</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/ingame-scripting">
+                                View on GitHub
+                            </a>
+                        </header>
+
+                        <p class="blurb">
+                            A custom interpreter for a loosely typed, in-game scripting language with support for
+                            <code>if</code> statements, basic math, and variables. Designed for a hacking-sim style
+                            game.
+                        </p>
+
+                        <dl class="kv">
+                            <dt>Why</dt>
+                            <dd>Give players the feel of real coding without requiring a full-blown language.</dd>
+                            <dt>What</dt>
+                            <dd>Lexer, parser, and interpreter in C# with identifiers, literals, operators, and control
+                                flow.
+                            </dd>
+                            <dt>Impact</dt>
+                            <dd>Enables emergent player solutions and replayability through scripting.</dd>
+                        </dl>
+                    </div>
+                </article>
             </div>
 
-            <div class="project-body">
-                <header class="project-header">
-                    <h3 class="project-title">Stylized Pixel Art Shaders</h3>
-                    <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">
-                        View on GitHub
-                    </a>
-                </header>
+            <button class="carousel-btn prev" aria-label="Previous project" type="button">‹</button>
+            <button class="carousel-btn next" aria-label="Next project" type="button">›</button>
 
-                <p class="blurb">
-                    A collection of stylized shaders for Unity with dithering, palette swapping,
-                    sharpness filtering, and procedural pixel-art effects.
-                </p>
-
-                <dl class="kv">
-                    <dt>Why</dt>
-                    <dd>Pixel-art effects often need hand-drawn assets or separate tools which slows iteration.</dd>
-                    <dt>What</dt>
-                    <dd>Real-time shaders for dithering, palette swaps, sharpness, plus procedural generators.</dd>
-                    <dt>Impact</dt>
-                    <dd>Offloads work to the GPU which means faster look-dev and experimentation.</dd>
-                </dl>
-            </div>
-        </article>
-
-        <article class="project-card">
-            <div class="project-media">
-                <video autoplay muted loop playsinline preload="metadata" poster="docs/images/procanim_poster.jpg">
-                    <source src="docs/videos/procanim_demo.mp4" type="video/mp4">
-                </video>
-                <span class="badge">Preview</span>
-            </div>
-
-            <div class="project-body">
-                <header class="project-header">
-                    <h3 class="project-title">Procedural Animation System</h3>
-                    <a class="btn project-cta" href="https://github.com/cannoli-cat/second-order-animation">
-                        View on GitHub
-                    </a>
-                </header>
-
-                <p class="blurb">
-                    A system for natural motion smoothing using second-order dynamics which adds lifelike lag and
-                    overshoot without extra keyframes.
-                </p>
-
-                <dl class="kv">
-                    <dt>Why</dt>
-                    <dd>Keyframed motion can feel rigid without a professional and takes a lot of time to tweak.</dd>
-                    <dt>What</dt>
-                    <dd>A tunable spring–damper filter that drives position & rotation toward a target in real time,
-                        adding smooth, inertial
-                        motion with no extra keyframes.</dd>
-                    <dt>Impact</dt>
-                    <dd>More lifelike motion with less manual tweaking.</dd>
-                </dl>
-            </div>
-        </article>
+            <div class="carousel-dots" role="tablist" aria-label="Project navigation"></div>
+        </div>
     </section>
 
     <section id="games">
@@ -137,6 +189,145 @@
             </p>
         </footer>
     </section>
+
+    <script>
+        (() => {
+            const carousel = document.querySelector('.carousel');
+            const track = carousel.querySelector('.carousel-track');
+            const slides = [...carousel.querySelectorAll('.slide')];
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            const dotsWrap = carousel.querySelector('.carousel-dots');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let idx = 0;
+
+            const DURATION = 10000;
+            let rafId = null;
+            let timeoutId = null;
+            let tStart = 0;
+            let remain = DURATION;
+
+            slides.forEach((_, i) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+
+                b.setAttribute('role', 'tab');
+                b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+
+                if (i === 0) b.setAttribute('aria-selected', 'true');
+
+                b.addEventListener('click', () => go(i, true));
+
+                b.classList.add('control');
+                dotsWrap.appendChild(b);
+            });
+            const dots = [...dotsWrap.querySelectorAll('button')];
+
+            prevBtn.classList.add('control');
+            nextBtn.classList.add('control');
+
+            function update() {
+                track.style.transform = `translateX(${-100 * idx}%)`;
+                dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
+                slides.forEach((s, i) => s.setAttribute('aria-hidden', i === idx ? 'false' : 'true'));
+                restartProgress();
+            }
+
+            function go(i) {
+                idx = (i + slides.length) % slides.length;
+                update();
+            }
+
+            prevBtn.addEventListener('click', () => go(idx - 1));
+            nextBtn.addEventListener('click', () => go(idx + 1));
+
+            carousel.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault(); go(idx - 1);
+                }
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault(); go(idx + 1);
+                }
+            });
+            carousel.tabIndex = 0;
+
+            carousel.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.control')) e.preventDefault();
+            });
+
+            function tick() {
+                const p = Math.min(1, (performance.now() - tStart) / DURATION);
+                carousel.style.setProperty('--progress', p.toString());
+                rafId = requestAnimationFrame(tick);
+            }
+            function restartProgress() {
+                tStart = performance.now();
+                carousel.style.setProperty('--progress', '0');
+            }
+
+            function startAuto(reset = false) {
+                if (reduceMotion) return;
+
+                stopAuto();
+
+                carousel.classList.add('running');
+                carousel.classList.remove('paused');
+
+                const delay = reset ? DURATION : remain;
+
+                if (reset) {
+                    tStart = performance.now();
+                    carousel.style.setProperty('--progress', '0');
+                } else {
+                    const elapsed = DURATION - remain;
+                    tStart = performance.now() - elapsed;
+                    carousel.style.setProperty('--progress', (elapsed / DURATION).toString());
+                }
+
+                rafId = requestAnimationFrame(tick);
+
+                timeoutId = setTimeout(() => {
+                    go(idx + 1);
+                    startAuto(true);
+                }, delay);
+
+                remain = DURATION;
+            }
+
+            function stopAuto() {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+
+                const elapsed = Math.min(DURATION, performance.now() - tStart);
+
+                remain = Math.max(0, DURATION - elapsed);
+                carousel.classList.remove('running');
+                carousel.classList.add('paused');
+            }
+
+            carousel.addEventListener('pointerenter', stopAuto);
+            carousel.addEventListener('pointerleave', () => startAuto(true));
+
+            carousel.addEventListener('focusin', (e) => {
+                if (!e.target.closest('.control')) stopAuto();
+            });
+            carousel.addEventListener('focusout', (e) => {
+                if (!carousel.contains(e.relatedTarget)) startAuto(true);
+            });
+
+            slides.forEach((s, i) => s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true'));
+            update();
+            startAuto(true);
+        })();
+    </script>
 </body>
 
 </html>
