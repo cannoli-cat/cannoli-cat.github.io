@@ -57,8 +57,8 @@
                     <div class="project-body">
                         <header class="project-header">
                             <h3 class="project-title">Stylized Pixel Art Shaders</h3>
-                            <a class="btn project-cta"
-                                href="https://github.com/cannoli-cat/pixel-stylized-shader-suite">
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite"
+                                target="_blank">
                                 View on GitHub
                             </a>
                         </header>
@@ -93,7 +93,8 @@
                     <div class="project-body">
                         <header class="project-header">
                             <h3 class="project-title">Procedural Animation System</h3>
-                            <a class="btn project-cta" href="https://github.com/cannoli-cat/second-order-animation">
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/second-order-animation"
+                                target="_blank">
                                 View on GitHub
                             </a>
                         </header>
@@ -130,7 +131,8 @@
                     <div class="project-body">
                         <header class="project-header">
                             <h3 class="project-title">Lightweight In-Game Scripting Language</h3>
-                            <a class="btn project-cta" href="https://github.com/cannoli-cat/ingame-scripting">
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/ingame-scripting"
+                                target="_blank">
                                 View on GitHub
                             </a>
                         </header>
@@ -202,14 +204,135 @@
 
             let idx = 0;
 
-            const DURATION = 10000;
+            const DEFAULT_MS = 10000;
+            const slideDurations = slides.map(() => DEFAULT_MS);
+
+            function setDurationFromVideo(v, i) {
+                if (Number.isFinite(v.duration) && v.duration > 0) {
+                    slideDurations[i] = Math.round(v.duration * 1000);
+
+                    if (i === idx && carousel.classList.contains('running')) startAuto(true);
+                }
+            }
+
+            slides.forEach((s, i) => {
+                const v = s.querySelector('video');
+
+                if (!v) return;
+
+                if (Number.isFinite(v.duration) && v.duration > 0) {
+                    setDurationFromVideo(v, i);
+                } else {
+                    v.addEventListener('loadedmetadata', () => setDurationFromVideo(v, i), { once: true });
+                }
+            });
+
+            const currentDuration = () => slideDurations[idx] || DEFAULT_MS;
+            const getActiveVideo = () => slides[idx]?.querySelector('video') || null;
+
             let rafId = null;
             let timeoutId = null;
             let tStart = 0;
-            let remain = DURATION;
+            let remain = currentDuration();
+
+            function videoElapsedMs() {
+                const dur = currentDuration();
+                const v = getActiveVideo();
+
+                if (!v || !Number.isFinite(v.currentTime)) return dur - remain;
+
+                const t = Math.max(0, Math.min(v.currentTime, Number.isFinite(v.duration) ? v.duration : dur / 1000));
+
+                return Math.min(dur, Math.round(t * 1000));
+            }
+
+            function syncToVideo(updateProgressUI = true) {
+                const dur = currentDuration();
+                const elapsed = Math.min(dur, videoElapsedMs());
+
+                tStart = performance.now() - elapsed;
+                remain = Math.max(0, dur - elapsed);
+
+                if (updateProgressUI) {
+                    carousel.style.setProperty('--progress', (elapsed / dur).toString());
+                }
+            }
+
+            function tick() {
+                const dur = currentDuration();
+                const p = Math.min(1, (performance.now() - tStart) / dur);
+
+                carousel.style.setProperty('--progress', p.toString());
+
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function restartProgress() {
+                syncToVideo(true);
+            }
+
+            function restartActiveVideo() {
+                const v = getActiveVideo();
+                if (!v) return;
+
+                slides.forEach((s, i) => {
+                    const vid = s.querySelector('video');
+                    if (!vid) return;
+                    if (i !== idx) vid.pause?.();
+                });
+
+                const seekToStart = () => {
+                    try {
+                        v.currentTime = 0;
+                    }
+                    catch { }
+                };
+
+                if (v.readyState < 1) {
+                    v.addEventListener('loadedmetadata', seekToStart, { once: true });
+                } else {
+                    seekToStart();
+                }
+
+                const p = v.play?.();
+                if (p && typeof p.catch === 'function') p.catch(() => { });
+            }
+
+            function startAuto(reset = false) {
+                if (reduceMotion) return;
+                stopAuto();
+
+                carousel.classList.add('running');
+                carousel.classList.remove('paused');
+
+                if (reset) {
+                    syncToVideo(true);
+                } else {
+                    syncToVideo(true);
+                }
+
+                const delay = remain;
+                rafId = requestAnimationFrame(tick);
+
+                timeoutId = setTimeout(() => {
+                    go(idx + 1);
+                    startAuto(true);
+                }, delay);
+            }
+
+            function stopAuto() {
+                if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+
+                syncToVideo(false);
+
+                carousel.classList.remove('running');
+                carousel.classList.add('paused');
+            }
 
             slides.forEach((_, i) => {
                 const b = document.createElement('button');
+
                 b.type = 'button';
 
                 b.setAttribute('role', 'tab');
@@ -217,101 +340,41 @@
 
                 if (i === 0) b.setAttribute('aria-selected', 'true');
 
-                b.addEventListener('click', () => go(i, true));
-
+                b.addEventListener('click', () => go(i));
                 b.classList.add('control');
                 dotsWrap.appendChild(b);
             });
             const dots = [...dotsWrap.querySelectorAll('button')];
 
-            prevBtn.classList.add('control');
-            nextBtn.classList.add('control');
-
             function update() {
                 track.style.transform = `translateX(${-100 * idx}%)`;
                 dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
                 slides.forEach((s, i) => s.setAttribute('aria-hidden', i === idx ? 'false' : 'true'));
+
+                restartActiveVideo();
                 restartProgress();
             }
 
             function go(i) {
                 idx = (i + slides.length) % slides.length;
+
                 update();
+
+                if (!reduceMotion) startAuto(true);
             }
 
             prevBtn.addEventListener('click', () => go(idx - 1));
             nextBtn.addEventListener('click', () => go(idx + 1));
 
             carousel.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault(); go(idx - 1);
-                }
-                if (e.key === 'ArrowRight') {
-                    e.preventDefault(); go(idx + 1);
-                }
+                if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
+                if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
             });
             carousel.tabIndex = 0;
 
             carousel.addEventListener('mousedown', (e) => {
                 if (e.target.closest('.control')) e.preventDefault();
             });
-
-            function tick() {
-                const p = Math.min(1, (performance.now() - tStart) / DURATION);
-                carousel.style.setProperty('--progress', p.toString());
-                rafId = requestAnimationFrame(tick);
-            }
-            function restartProgress() {
-                tStart = performance.now();
-                carousel.style.setProperty('--progress', '0');
-            }
-
-            function startAuto(reset = false) {
-                if (reduceMotion) return;
-
-                stopAuto();
-
-                carousel.classList.add('running');
-                carousel.classList.remove('paused');
-
-                const delay = reset ? DURATION : remain;
-
-                if (reset) {
-                    tStart = performance.now();
-                    carousel.style.setProperty('--progress', '0');
-                } else {
-                    const elapsed = DURATION - remain;
-                    tStart = performance.now() - elapsed;
-                    carousel.style.setProperty('--progress', (elapsed / DURATION).toString());
-                }
-
-                rafId = requestAnimationFrame(tick);
-
-                timeoutId = setTimeout(() => {
-                    go(idx + 1);
-                    startAuto(true);
-                }, delay);
-
-                remain = DURATION;
-            }
-
-            function stopAuto() {
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                    timeoutId = null;
-                }
-
-                if (rafId) {
-                    cancelAnimationFrame(rafId);
-                    rafId = null;
-                }
-
-                const elapsed = Math.min(DURATION, performance.now() - tStart);
-
-                remain = Math.max(0, DURATION - elapsed);
-                carousel.classList.remove('running');
-                carousel.classList.add('paused');
-            }
 
             carousel.addEventListener('pointerenter', stopAuto);
             carousel.addEventListener('pointerleave', () => startAuto(true));
@@ -323,8 +386,20 @@
                 if (!carousel.contains(e.relatedTarget)) startAuto(true);
             });
 
+            slides.forEach((s, i) => {
+                const v = s.querySelector('video');
+
+                if (!v) return;
+
+                v.addEventListener('loadedmetadata', () => {
+                    if (i === idx && carousel.classList.contains('running')) startAuto(true);
+                }, { once: true });
+            });
+
             slides.forEach((s, i) => s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true'));
+
             update();
+
             startAuto(true);
         })();
     </script>
