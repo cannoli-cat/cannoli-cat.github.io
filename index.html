@@ -26,19 +26,30 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <div class="about-container">
-            <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" />
-            <div class="about-text">
-                <p>Hi, I'm Tyler Wolfe. I create games and game development tools in
-                    Unity with a focus on procedural generation, stylized rendering, and systems that give developers
-                    more freedom to create.
-                    I'm especially drawn to problems where a little extra engineering can save hours of manual work.
-                    My goal is to not only make development faster and easier, but also to empower creators to make more
-                    ambitious and unique projects.
+
+        <article class="about-card">
+            <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="about-avatar">
+
+            <div class="about-main">
+                <p class="about-intro">
+                    Hi, I'm Tyler Wolfe! I create games and game development tools in Unity that give developers more
+                    freedom to create.
                 </p>
+
+                <details class="about-more">
+                    <summary>Read more</summary>
+                    <p>
+                        I love tackling problems where a bit of extra engineering can save hours of manual work. My goal
+                        is to
+                        not only
+                        make development faster and easier, but also to empower creators to make more ambitious and
+                        unique projects.
+                    </p>
+                </details>
             </div>
-        </div>
+        </article>
     </section>
+
 
     <section id="projects">
         <h2>Projects</h2>
@@ -70,10 +81,10 @@
 
                         <dl class="kv">
                             <dt>Why</dt>
-                            <dd>Pixel-art effects often need hand-drawn assets or separate tools which slows iteration.
+                            <dd>Pixel-art effects often need hand-drawn assets which slows iteration.
                             </dd>
                             <dt>What</dt>
-                            <dd>Real-time shaders for dithering, palette swaps, sharpness, plus procedural generators.
+                            <dd>Real-time shaders for dithering, palette swaps, sharpness, & procedural generators.
                             </dd>
                             <dt>Impact</dt>
                             <dd>Offloads work to the GPU which means faster iteration and experimentation.</dd>
