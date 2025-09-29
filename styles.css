@@ -14,6 +14,11 @@
     --muted-2: #dfe3e6;
     --brand: #4aa3df;
     --shadow: 0 6px 24px rgba(0, 0, 0, .25);
+    --step--1: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+    --step-0: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
+    --step-1: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    --step-2: clamp(1.35rem, 1.05rem + 1.2vw, 1.75rem);
+    --step-3: clamp(1.6rem, 1.1rem + 2vw, 2.25rem);
 }
 
 html {
@@ -23,10 +28,27 @@ html {
 body {
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 17px;
+    font-size: var(--step-0);
     line-height: 1.8;
     color: var(--text);
     background: var(--bg);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+.skip {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+}
+
+.skip:focus {
+    left: 10px;
+    top: 10px;
+    background: #000;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
 }
 
 h1,
@@ -37,18 +59,18 @@ h3 {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: var(--step-3);
 }
 
 h2 {
-    font-size: 26px;
+    font-size: var(--step-2);
     padding-bottom: 6px;
     margin-bottom: 20px;
     border-bottom: 2px solid #fff;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: var(--step-1);
 }
 
 a {
@@ -59,6 +81,13 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+a,
+.btn,
+.carousel-btn,
+.nav-links a {
+    min-height: 44px;
 }
 
 .btn {
@@ -85,6 +114,7 @@ nav {
     background: var(--bg-elev-1);
     color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+    padding-top: env(safe-area-inset-top);
 }
 
 .nav-container {
@@ -94,6 +124,17 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    line-height: 1;
+    color: #ccc;
 }
 
 .logo {
@@ -127,13 +168,43 @@ nav {
     color: var(--brand);
 }
 
-section {
-    max-width: 1600px;
-    margin: 56px auto;
-    padding: 0 36px 48px;
+@media (max-width:800px) {
+    .nav-toggle {
+        display: inline-block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-elev-1);
+        display: grid;
+        gap: 4px;
+        padding: 10px 16px 14px;
+        border-top: 1px solid var(--border);
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform .18s ease;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 8px;
+    }
+
+    .nav-links.is-open {
+        transform: scaleY(1);
+    }
 }
 
-section:nth-child(even) {
+section {
+    max-width: 1600px;
+    margin: clamp(24px, 6vw, 56px) auto;
+    padding: 0 clamp(16px, 4vw, 36px) clamp(32px, 5vw, 48px);
+}
+
+section:nth-of-type(even) {
     background: #252525;
 }
 
@@ -158,22 +229,22 @@ section:nth-child(even) {
 .project-card {
     display: grid;
     grid-template-columns: 560px minmax(0, 1fr);
-    gap: 32px;
+    gap: clamp(16px, 3vw, 32px);
     background: var(--bg-elev-2);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 28px;
+    padding: clamp(16px, 3vw, 28px);
     box-shadow: var(--shadow);
     margin-bottom: 34px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width:1200px) {
     .project-card {
         grid-template-columns: 520px 1fr;
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width:1100px) {
     .project-card {
         grid-template-columns: 1fr;
     }
@@ -292,11 +363,21 @@ section:nth-child(even) {
     border-radius: 4px;
 }
 
-.games-scroll iframe {
-    flex: 0 0 auto;
+.embed {
+    width: min(560px, 100%);
+    aspect-ratio: 552/167;
     border-radius: 8px;
+    overflow: hidden;
     border: 2px solid #333;
     background: #222;
+    flex: 0 0 auto;
+}
+
+.embed>iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
 }
 
 footer {
@@ -309,6 +390,16 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     .project-media>video {
         animation: none;
+    }
+
+    .carousel-track {
+        transition: none;
+    }
+}
+
+@media (pointer: coarse) {
+    .carousel::after {
+        display: none;
     }
 }
 
@@ -329,17 +420,13 @@ footer {
     position: relative;
     overflow: hidden;
     border-radius: 16px;
-    box-shadow:
-        0 0 0 2px rgba(74, 163, 223, 0),
-        0 0 12px 2px rgba(74, 163, 223, 0);
+    box-shadow: 0 0 0 2px rgba(74, 163, 223, 0), 0 0 12px 2px rgba(74, 163, 223, 0);
     transition: box-shadow 0.3s ease;
 }
 
 .carousel:hover,
 .carousel.paused {
-    box-shadow:
-        0 0 0 2px var(--brand),
-        0 0 12px 2px rgba(74, 163, 223, 0.2);
+    box-shadow: 0 0 0 2px var(--brand), 0 0 12px 2px rgba(74, 163, 223, 0.2);
 }
 
 .carousel::after {
@@ -396,10 +483,7 @@ footer {
     position: absolute;
     inset: -5px;
     border-radius: 999px;
-    background:
-        conic-gradient(var(--brand) 0turn,
-            var(--brand) calc(var(--progress, 0) * 1turn),
-            transparent 0);
+    background: conic-gradient(var(--brand) 0turn, var(--brand) calc(var(--progress, 0) * 1turn), transparent 0);
     -webkit-mask: radial-gradient(farthest-side, transparent 70%, #000 71%);
     mask: radial-gradient(farthest-side, transparent 70%, #000 71%);
     opacity: 0;
@@ -437,8 +521,19 @@ footer {
     right: 12px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .carousel-track {
-        transition: none;
+@media (max-width:600px) {
+    .carousel-btn {
+        padding: 10px 14px;
+        font-size: 26px;
     }
+
+    .carousel-dots {
+        bottom: 6px;
+    }
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
 }
