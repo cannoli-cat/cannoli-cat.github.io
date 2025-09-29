@@ -261,7 +261,7 @@
                 const p = v.play?.(); if (p && typeof p.catch === 'function') p.catch(() => { });
             }
 
-            function startAuto(reset = false) {
+            function startAuto() {
                 if (reduceMotion) return;
                 stopAuto();
                 carousel.classList.add('running');
@@ -293,6 +293,7 @@
             const dots = [...dotsWrap.querySelectorAll('button')];
 
             function update() {
+                track.style.transition = 'transform 320ms ease';
                 track.style.transform = `translateX(${-100 * idx}%)`;
                 dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
                 slides.forEach((s, i) => s.setAttribute('aria-hidden', i === idx ? 'false' : 'true'));
@@ -323,6 +324,43 @@
                 carousel.style.touchAction = 'pan-y';
                 carousel.style.webkitUserSelect = 'none';
                 carousel.style.userSelect = 'none';
+
+                let startX = 0, deltaX = 0, dragging = false, base = 0, width = 0;
+
+                const onDown = (e) => {
+                    const p = e.touches ? e.touches[0] : e;
+                    dragging = true;
+                    width = carousel.clientWidth;
+                    startX = p.clientX;
+                    base = -idx * width;
+                    track.style.transition = 'none';
+                    stopAuto();
+                };
+
+                const onMove = (e) => {
+                    if (!dragging) return;
+                    const p = e.touches ? e.touches[0] : e;
+                    deltaX = p.clientX - startX;
+                    track.style.transform = `translateX(${base + deltaX}px)`;
+                };
+
+                const onUp = () => {
+                    if (!dragging) return;
+                    dragging = false;
+                    const threshold = width * 0.15;
+                    if (deltaX > threshold) go(idx - 1);
+                    else if (deltaX < -threshold) go(idx + 1);
+                    else update();
+                    startAuto(true);
+                    deltaX = 0;
+                };
+
+                track.addEventListener('touchstart', onDown, { passive: true });
+                track.addEventListener('touchmove', onMove, { passive: true });
+                track.addEventListener('touchend', onUp);
+                track.addEventListener('pointerdown', onDown);
+                window.addEventListener('pointermove', onMove);
+                window.addEventListener('pointerup', onUp);
             }
 
             slides.forEach((s, i) => {
