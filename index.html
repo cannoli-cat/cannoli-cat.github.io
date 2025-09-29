@@ -199,30 +199,24 @@
             const nextBtn = carousel.querySelector('.next');
             const dotsWrap = carousel.querySelector('.carousel-dots');
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
             let idx = 0;
-
             const DEFAULT_MS = 10000;
             const slideDurations = slides.map(() => DEFAULT_MS);
 
             function setDurationFromVideo(v, i) {
                 if (Number.isFinite(v.duration) && v.duration > 0) {
                     slideDurations[i] = Math.round(v.duration * 1000);
-
                     if (i === idx && carousel.classList.contains('running')) startAuto(true);
                 }
             }
 
             slides.forEach((s, i) => {
                 const v = s.querySelector('video');
-
                 if (!v) return;
-
-                if (Number.isFinite(v.duration) && v.duration > 0) {
-                    setDurationFromVideo(v, i);
-                } else {
-                    v.addEventListener('loadedmetadata', () => setDurationFromVideo(v, i), { once: true });
-                }
+                if (Number.isFinite(v.duration) && v.duration > 0) setDurationFromVideo(v, i);
+                else v.addEventListener('loadedmetadata', () => setDurationFromVideo(v, i), { once: true });
             });
 
             const currentDuration = () => slideDurations[idx] || DEFAULT_MS;
@@ -236,108 +230,62 @@
             function videoElapsedMs() {
                 const dur = currentDuration();
                 const v = getActiveVideo();
-
                 if (!v || !Number.isFinite(v.currentTime)) return dur - remain;
-
                 const t = Math.max(0, Math.min(v.currentTime, Number.isFinite(v.duration) ? v.duration : dur / 1000));
-
                 return Math.min(dur, Math.round(t * 1000));
             }
 
             function syncToVideo(updateProgressUI = true) {
                 const dur = currentDuration();
                 const elapsed = Math.min(dur, videoElapsedMs());
-
                 tStart = performance.now() - elapsed;
                 remain = Math.max(0, dur - elapsed);
-
-                if (updateProgressUI) {
-                    carousel.style.setProperty('--progress', (elapsed / dur).toString());
-                }
+                if (updateProgressUI) carousel.style.setProperty('--progress', (elapsed / dur).toString());
             }
 
             function tick() {
                 const dur = currentDuration();
                 const p = Math.min(1, (performance.now() - tStart) / dur);
-
                 carousel.style.setProperty('--progress', p.toString());
-
                 rafId = requestAnimationFrame(tick);
             }
 
-            function restartProgress() {
-                syncToVideo(true);
-            }
+            function restartProgress() { syncToVideo(true) }
 
             function restartActiveVideo() {
                 const v = getActiveVideo();
                 if (!v) return;
-
-                slides.forEach((s, i) => {
-                    const vid = s.querySelector('video');
-                    if (!vid) return;
-                    if (i !== idx) vid.pause?.();
-                });
-
-                const seekToStart = () => {
-                    try {
-                        v.currentTime = 0;
-                    }
-                    catch { }
-                };
-
-                if (v.readyState < 1) {
-                    v.addEventListener('loadedmetadata', seekToStart, { once: true });
-                } else {
-                    seekToStart();
-                }
-
-                const p = v.play?.();
-                if (p && typeof p.catch === 'function') p.catch(() => { });
+                slides.forEach((s, i) => { const vid = s.querySelector('video'); if (vid && i !== idx) vid.pause?.() });
+                const seekToStart = () => { try { v.currentTime = 0 } catch { } };
+                if (v.readyState < 1) v.addEventListener('loadedmetadata', seekToStart, { once: true }); else seekToStart();
+                const p = v.play?.(); if (p && typeof p.catch === 'function') p.catch(() => { });
             }
 
             function startAuto(reset = false) {
                 if (reduceMotion) return;
                 stopAuto();
-
                 carousel.classList.add('running');
                 carousel.classList.remove('paused');
-
-                if (reset) {
-                    syncToVideo(true);
-                } else {
-                    syncToVideo(true);
-                }
-
+                syncToVideo(true);
                 const delay = remain;
                 rafId = requestAnimationFrame(tick);
-
-                timeoutId = setTimeout(() => {
-                    go(idx + 1);
-                    startAuto(true);
-                }, delay);
+                timeoutId = setTimeout(() => { go(idx + 1); startAuto(true) }, delay);
             }
 
             function stopAuto() {
-                if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
-                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-
+                if (timeoutId) { clearTimeout(timeoutId); timeoutId = null }
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null }
                 syncToVideo(false);
-
                 carousel.classList.remove('running');
                 carousel.classList.add('paused');
             }
 
             slides.forEach((_, i) => {
                 const b = document.createElement('button');
-
                 b.type = 'button';
-
                 b.setAttribute('role', 'tab');
                 b.setAttribute('aria-label', `Go to slide ${i + 1}`);
-
                 if (i === 0) b.setAttribute('aria-selected', 'true');
-
                 b.addEventListener('click', () => go(i));
                 b.classList.add('control');
                 dotsWrap.appendChild(b);
@@ -348,56 +296,45 @@
                 track.style.transform = `translateX(${-100 * idx}%)`;
                 dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
                 slides.forEach((s, i) => s.setAttribute('aria-hidden', i === idx ? 'false' : 'true'));
-
                 restartActiveVideo();
                 restartProgress();
             }
 
             function go(i) {
                 idx = (i + slides.length) % slides.length;
-
                 update();
-
                 if (!reduceMotion) startAuto(true);
             }
 
-            prevBtn.addEventListener('click', () => go(idx - 1));
-            nextBtn.addEventListener('click', () => go(idx + 1));
-
-            carousel.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
-                if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
-            });
-            carousel.tabIndex = 0;
-
-            carousel.addEventListener('mousedown', (e) => {
-                if (e.target.closest('.control')) e.preventDefault();
-            });
-
-            carousel.addEventListener('pointerenter', stopAuto);
-            carousel.addEventListener('pointerleave', () => startAuto(true));
-
-            carousel.addEventListener('focusin', (e) => {
-                if (!e.target.closest('.control')) stopAuto();
-            });
-            carousel.addEventListener('focusout', (e) => {
-                if (!carousel.contains(e.relatedTarget)) startAuto(true);
-            });
+            if (!isTouch) {
+                prevBtn.addEventListener('click', () => go(idx - 1));
+                nextBtn.addEventListener('click', () => go(idx + 1));
+                carousel.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1) }
+                    if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1) }
+                });
+                carousel.tabIndex = 0;
+                carousel.addEventListener('pointerenter', stopAuto);
+                carousel.addEventListener('pointerleave', () => startAuto(true));
+                carousel.addEventListener('focusin', (e) => { if (!e.target.closest('.control')) stopAuto() });
+                carousel.addEventListener('focusout', (e) => { if (!carousel.contains(e.relatedTarget)) startAuto(true) });
+            } else {
+                carousel.tabIndex = -1;
+                carousel.style.touchAction = 'pan-y';
+                carousel.style.webkitUserSelect = 'none';
+                carousel.style.userSelect = 'none';
+            }
 
             slides.forEach((s, i) => {
                 const v = s.querySelector('video');
-
                 if (!v) return;
-
                 v.addEventListener('loadedmetadata', () => {
                     if (i === idx && carousel.classList.contains('running')) startAuto(true);
                 }, { once: true });
             });
 
             slides.forEach((s, i) => s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true'));
-
             update();
-
             startAuto(true);
         })();
     </script>
