@@ -3,23 +3,19 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="preload" as="image" href="docs/images/ditherdemo_poster.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Tyler Wolfe | Portfolio</title>
 </head>
 
 <body>
-    <a href="#about" class="skip">Skip to content</a>
-
     <nav>
         <div class="nav-container">
             <div class="logo">
                 <span class="name">Tyler Wolfe</span><br>
                 <span class="subtitle">Game Design Portfolio</span>
             </div>
-            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">☰</button>
-            <ul id="primary-nav" class="nav-links">
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#games">Games</a></li>
@@ -31,14 +27,15 @@
     <section id="about">
         <h2>About Me</h2>
         <div class="about-container">
-            <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" width="280" height="280"
-                loading="lazy" decoding="async" />
+            <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="profile-pic" />
             <div class="about-text">
-                <p>Hi, I'm Tyler Wolfe. I create games and game development tools in Unity with a focus on procedural
-                    generation, stylized rendering, and systems that give developers more freedom to create. I'm
-                    especially drawn to problems where a little extra engineering can save hours of manual work. My goal
-                    is to not only make development faster and easier, but also to empower creators to make more
-                    ambitious and unique projects.</p>
+                <p>Hi, I'm Tyler Wolfe. I create games and game development tools in
+                    Unity with a focus on procedural generation, stylized rendering, and systems that give developers
+                    more freedom to create.
+                    I'm especially drawn to problems where a little extra engineering can save hours of manual work.
+                    My goal is to not only make development faster and easier, but also to empower creators to make more
+                    ambitious and unique projects.
+                </p>
             </div>
         </div>
     </section>
@@ -56,14 +53,21 @@
                         </video>
                         <span class="badge">Preview</span>
                     </div>
+
                     <div class="project-body">
                         <header class="project-header">
                             <h3 class="project-title">Stylized Pixel Art Shaders</h3>
                             <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite"
-                                target="_blank">View on GitHub</a>
+                                target="_blank">
+                                View on GitHub
+                            </a>
                         </header>
-                        <p class="blurb">A collection of stylized shaders for Unity with dithering, palette swapping,
-                            sharpness filtering, and procedural pixel-art effects.</p>
+
+                        <p class="blurb">
+                            A collection of stylized shaders for Unity with dithering, palette swapping,
+                            sharpness filtering, and procedural pixel-art effects.
+                        </p>
+
                         <dl class="kv">
                             <dt>Why</dt>
                             <dd>Pixel-art effects often need hand-drawn assets or separate tools which slows iteration.
@@ -85,14 +89,21 @@
                         </video>
                         <span class="badge">Preview</span>
                     </div>
+
                     <div class="project-body">
                         <header class="project-header">
                             <h3 class="project-title">Second-Order Dynamics</h3>
                             <a class="btn project-cta" href="https://github.com/cannoli-cat/second-order-dynamics"
-                                target="_blank">View on GitHub</a>
+                                target="_blank">
+                                View on GitHub
+                            </a>
                         </header>
-                        <p class="blurb">A system for natural motion smoothing using second-order dynamics which adds
-                            lifelike lag and overshoot without extra keyframes.</p>
+
+                        <p class="blurb">
+                            A system for natural motion smoothing using second-order dynamics which adds lifelike lag
+                            and overshoot without extra keyframes.
+                        </p>
+
                         <dl class="kv">
                             <dt>Why</dt>
                             <dd>Keyframed motion can feel rigid without a professional and takes a lot of time to tweak.
@@ -105,10 +116,48 @@
                         </dl>
                     </div>
                 </article>
+
+                <!-- <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 3">
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline preload="metadata"
+                            poster="docs/images/scriptinglang_poster.jpg">
+                            <source src="docs/videos/scriptinglang_demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
+                    </div>
+
+                    <div class="project-body">
+                        <header class="project-header">
+                            <h3 class="project-title">Lightweight In-Game Scripting Language</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/ingame-scripting"
+                                target="_blank">
+                                View on GitHub
+                            </a>
+                        </header>
+
+                        <p class="blurb">
+                            A custom interpreter for a loosely typed, in-game scripting language with support for
+                            <code>if</code> statements, basic math, and variables. Designed for a hacking-sim style
+                            game.
+                        </p>
+
+                        <dl class="kv">
+                            <dt>Why</dt>
+                            <dd>Give players the feel of real coding without requiring a full-blown language.</dd>
+                            <dt>What</dt>
+                            <dd>Lexer, parser, and interpreter in C# with identifiers, literals, operators, and control
+                                flow.
+                            </dd>
+                            <dt>Impact</dt>
+                            <dd>Enables emergent player solutions and replayability through scripting.</dd>
+                        </dl>
+                    </div>
+                </article> -->
             </div>
 
             <button class="carousel-btn prev" aria-label="Previous project" type="button">‹</button>
             <button class="carousel-btn next" aria-label="Next project" type="button">›</button>
+
             <div class="carousel-dots" role="tablist" aria-label="Project navigation"></div>
         </div>
     </section>
@@ -116,20 +165,17 @@
     <section id="games">
         <h2>Games</h2>
         <div class="games-scroll">
-            <div class="embed">
-                <iframe frameborder="0" loading="lazy"
-                    src="https://itch.io/embed/3776284?bg_color=181a1b&fg_color=e4e4e4&link_color=4aa3df&border_color=333333"
-                    width="552" height="167">
-                    <a href="https://cannolicat.itch.io/apogee-logistics">Apogee Logistics</a>
-                </iframe>
-            </div>
-            <div class="embed">
-                <iframe frameborder="0" loading="lazy"
-                    src="https://itch.io/embed/3060292?bg_color=181a1b&fg_color=e4e4e4&link_color=4aa3df&border_color=333333"
-                    width="552" height="167">
-                    <a href="https://cannolicat.itch.io/dead-silent">Dead Silent</a>
-                </iframe>
-            </div>
+            <iframe frameborder="0"
+                src="https://itch.io/embed/3776284?bg_color=181a1b&fg_color=e4e4e4&link_color=4aa3df&border_color=333333"
+                width="552" height="167">
+                <a href="https://cannolicat.itch.io/apogee-logistics">Apogee Logistics</a>
+            </iframe>
+
+            <iframe frameborder="0"
+                src="https://itch.io/embed/3060292?bg_color=181a1b&fg_color=e4e4e4&link_color=4aa3df&border_color=333333"
+                width="552" height="167">
+                <a href="https://cannolicat.itch.io/dead-silent">Dead Silent</a>
+            </iframe>
         </div>
         <footer>
             <p>View all my games on <a href="https://cannolicat.itch.io" target="_blank">itch.io</a>.</p>
@@ -138,8 +184,9 @@
 
     <section id="contact">
         <footer>
-            <p>Contact: <a href="mailto:wolfetyler0115@gmail.com">wolfetyler0115@gmail.com</a> | <a
-                    href="https://www.linkedin.com/in/tyler-wolfe-24981124a">LinkedIn</a></p>
+            <p>Contact: <a href="mailto:wolfetyler0115@gmail.com">wolfetyler0115@gmail.com</a> |
+                <a href="https://www.linkedin.com/in/tyler-wolfe-24981124a">LinkedIn</a>
+            </p>
         </footer>
     </section>
 
@@ -154,19 +201,23 @@
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             let idx = 0;
+
             const DEFAULT_MS = 10000;
             const slideDurations = slides.map(() => DEFAULT_MS);
 
             function setDurationFromVideo(v, i) {
                 if (Number.isFinite(v.duration) && v.duration > 0) {
                     slideDurations[i] = Math.round(v.duration * 1000);
+
                     if (i === idx && carousel.classList.contains('running')) startAuto(true);
                 }
             }
 
             slides.forEach((s, i) => {
                 const v = s.querySelector('video');
+
                 if (!v) return;
+
                 if (Number.isFinite(v.duration) && v.duration > 0) {
                     setDurationFromVideo(v, i);
                 } else {
@@ -185,66 +236,108 @@
             function videoElapsedMs() {
                 const dur = currentDuration();
                 const v = getActiveVideo();
+
                 if (!v || !Number.isFinite(v.currentTime)) return dur - remain;
+
                 const t = Math.max(0, Math.min(v.currentTime, Number.isFinite(v.duration) ? v.duration : dur / 1000));
+
                 return Math.min(dur, Math.round(t * 1000));
             }
 
             function syncToVideo(updateProgressUI = true) {
                 const dur = currentDuration();
                 const elapsed = Math.min(dur, videoElapsedMs());
+
                 tStart = performance.now() - elapsed;
                 remain = Math.max(0, dur - elapsed);
-                if (updateProgressUI) carousel.style.setProperty('--progress', (elapsed / dur).toString());
+
+                if (updateProgressUI) {
+                    carousel.style.setProperty('--progress', (elapsed / dur).toString());
+                }
             }
 
             function tick() {
                 const dur = currentDuration();
                 const p = Math.min(1, (performance.now() - tStart) / dur);
+
                 carousel.style.setProperty('--progress', p.toString());
+
                 rafId = requestAnimationFrame(tick);
             }
 
-            function restartProgress() { syncToVideo(true); }
+            function restartProgress() {
+                syncToVideo(true);
+            }
 
             function restartActiveVideo() {
                 const v = getActiveVideo();
                 if (!v) return;
+
                 slides.forEach((s, i) => {
                     const vid = s.querySelector('video');
                     if (!vid) return;
                     if (i !== idx) vid.pause?.();
                 });
-                const seekToStart = () => { try { v.currentTime = 0; } catch { } };
-                if (v.readyState < 1) v.addEventListener('loadedmetadata', seekToStart, { once: true }); else seekToStart();
-                const p = v.play?.(); if (p && typeof p.catch === 'function') p.catch(() => { });
+
+                const seekToStart = () => {
+                    try {
+                        v.currentTime = 0;
+                    }
+                    catch { }
+                };
+
+                if (v.readyState < 1) {
+                    v.addEventListener('loadedmetadata', seekToStart, { once: true });
+                } else {
+                    seekToStart();
+                }
+
+                const p = v.play?.();
+                if (p && typeof p.catch === 'function') p.catch(() => { });
             }
 
             function startAuto(reset = false) {
                 if (reduceMotion) return;
                 stopAuto();
+
                 carousel.classList.add('running');
                 carousel.classList.remove('paused');
-                syncToVideo(true);
+
+                if (reset) {
+                    syncToVideo(true);
+                } else {
+                    syncToVideo(true);
+                }
+
                 const delay = remain;
                 rafId = requestAnimationFrame(tick);
-                timeoutId = setTimeout(() => { go(idx + 1); startAuto(true); }, delay);
+
+                timeoutId = setTimeout(() => {
+                    go(idx + 1);
+                    startAuto(true);
+                }, delay);
             }
 
             function stopAuto() {
                 if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
                 if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+
                 syncToVideo(false);
+
                 carousel.classList.remove('running');
                 carousel.classList.add('paused');
             }
 
             slides.forEach((_, i) => {
                 const b = document.createElement('button');
+
                 b.type = 'button';
+
                 b.setAttribute('role', 'tab');
                 b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+
                 if (i === 0) b.setAttribute('aria-selected', 'true');
+
                 b.addEventListener('click', () => go(i));
                 b.classList.add('control');
                 dotsWrap.appendChild(b);
@@ -255,13 +348,16 @@
                 track.style.transform = `translateX(${-100 * idx}%)`;
                 dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
                 slides.forEach((s, i) => s.setAttribute('aria-hidden', i === idx ? 'false' : 'true'));
+
                 restartActiveVideo();
                 restartProgress();
             }
 
             function go(i) {
                 idx = (i + slides.length) % slides.length;
+
                 update();
+
                 if (!reduceMotion) startAuto(true);
             }
 
@@ -274,36 +370,36 @@
             });
             carousel.tabIndex = 0;
 
-            carousel.addEventListener('mousedown', (e) => { if (e.target.closest('.control')) e.preventDefault(); });
+            carousel.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.control')) e.preventDefault();
+            });
+
             carousel.addEventListener('pointerenter', stopAuto);
             carousel.addEventListener('pointerleave', () => startAuto(true));
-            carousel.addEventListener('focusin', (e) => { if (!e.target.closest('.control')) stopAuto(); });
-            carousel.addEventListener('focusout', (e) => { if (!carousel.contains(e.relatedTarget)) startAuto(true); });
+
+            carousel.addEventListener('focusin', (e) => {
+                if (!e.target.closest('.control')) stopAuto();
+            });
+            carousel.addEventListener('focusout', (e) => {
+                if (!carousel.contains(e.relatedTarget)) startAuto(true);
+            });
 
             slides.forEach((s, i) => {
                 const v = s.querySelector('video');
+
                 if (!v) return;
+
                 v.addEventListener('loadedmetadata', () => {
                     if (i === idx && carousel.classList.contains('running')) startAuto(true);
                 }, { once: true });
             });
 
             slides.forEach((s, i) => s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true'));
+
             update();
+
             startAuto(true);
         })();
-    </script>
-
-    <script>
-        const toggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('#primary-nav');
-        toggle?.addEventListener('click', () => {
-            const open = nav.classList.toggle('is-open');
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        nav?.addEventListener('click', e => {
-            if (e.target.closest('a')) { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
-        });
     </script>
 </body>
 
