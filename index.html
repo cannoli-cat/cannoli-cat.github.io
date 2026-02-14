@@ -13,43 +13,84 @@
         <div class="nav-container">
             <div class="logo">
                 <span class="name">Tyler Wolfe</span><br>
-                <span class="subtitle">Game Dev Portfolio</span>
+                <span class="subtitle">Computer Science Student</span>
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#games">Games</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://github.com/cannoli-cat" target="_blank">GitHub</a></li>
+                <li><a href="docs/Tyler_Wolfe_Resume.pdf" class="nav-cta">Resume</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-
-        <article class="about-card">
-            <img src="docs/images/profile.jpg" alt="Picture of Tyler Wolfe" class="about-avatar">
-
-            <div class="about-main">
-                <p class="about-intro">
-                    Hi, I'm Tyler Wolfe! I create games and game development tools in Unity that give developers more
-                    freedom to create.
-                </p>
-
-                <details class="about-more">
-                    <summary>Read more</summary>
-                    <p>
-                        I love tackling problems where a bit of extra engineering can save hours of manual work. My goal
-                        is to
-                        not only
-                        make development faster and easier, but also to empower creators to make more ambitious and
-                        unique projects.
-                    </p>
-                </details>
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Tyler Wolfe</h1>
+            <p class="hero-subtitle">Computer Science Student @ ASU</p>
+            <p class="hero-tagline">I build real-time systems, games, and performance-critical code.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="docs/Tyler_Wolfe_Resume.pdf" class="btn btn-secondary">Resume</a>
             </div>
-        </article>
+            <div class="hero-socials">
+                <a href="https://github.com/cannoli-cat" target="_blank" aria-label="GitHub">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/tyler-wolfe-24981124a" target="_blank" aria-label="LinkedIn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <a href="mailto:wolfetyler0115@gmail.com" aria-label="Email">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </section>
 
+    <section id="skills">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <p>C#, Java, Python, JavaScript, HTML/CSS, HLSL/Shaders</p>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Frameworks</h3>
+                <p>Unity, Git, Visual Studio, JetBrains IDEs</p>
+            </div>
+            <div class="skill-category">
+                <h3>Technical Areas</h3>
+                <p>Computer Graphics, Networking & Multiplayer, Data Structures & Algorithms, Object-Oriented
+                    Programming</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-card">
+            <h3>Arizona State University</h3>
+            <p><strong>Bachelor of Science in Computer Science</strong> | Expected April 2029</p>
+            <p><strong>Relevant Coursework:</strong> Digital Logic Design, Calculus, Object-Oriented Programming
+            </p>
+        </div>
+    </section>
 
     <section id="projects">
         <h2>Projects</h2>
@@ -57,37 +98,46 @@
         <div class="carousel" aria-roledescription="carousel">
             <div class="carousel-track" role="group" aria-label="Project slides">
                 <article class="project-card slide" aria-roledescription="slide" aria-label="1 of 3">
-                    <div class="project-media">
-                        <video autoplay muted loop playsinline preload="metadata"
-                            poster="docs/images/ditherdemo_poster.jpg">
-                            <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
-                        </video>
-                        <span class="badge">Preview</span>
+                    <div class="project-media project-media-placeholder">
+                        <div class="placeholder-content">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                                <line x1="14.5" y1="4" x2="9.5" y2="20" stroke-dasharray="2 2"></line>
+                            </svg>
+                            <span>In Development</span>
+                        </div>
                     </div>
 
                     <div class="project-body">
                         <header class="project-header">
-                            <h3 class="project-title">Stylized Pixel Art Shaders</h3>
-                            <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite"
-                                target="_blank">
+                            <h3 class="project-title">Weft, A Lightweight In-Game Scripting Language</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/Weft" target="_blank">
                                 View on GitHub
                             </a>
                         </header>
 
                         <p class="blurb">
-                            A collection of stylized shaders for Unity with dithering, palette swapping,
-                            sharpness filtering, and procedural pixel-art effects.
+                            A loosely typed, in-game scripting language with support for
+                            <code>if</code> statements, basic math, variables, and more.
                         </p>
+
+                        <div class="tech-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Interpreter Design</span>
+                            <span class="tag">Lexer/Parser</span>
+                        </div>
 
                         <dl class="kv">
                             <dt>Why</dt>
-                            <dd>Pixel-art effects often need hand-drawn assets which slows iteration.
-                            </dd>
+                            <dd>Give players the feel of real coding without requiring a full-blown language.</dd>
                             <dt>What</dt>
-                            <dd>Real-time shaders for dithering, palette swaps, sharpness, & procedural generators.
+                            <dd>Lexer, parser, and interpreter in C# with identifiers, literals, operators, and control
+                                flow.
                             </dd>
                             <dt>Impact</dt>
-                            <dd>Offloads work to the GPU which means faster iteration and experimentation.</dd>
+                            <dd>Enables emergent player solutions and replayability through scripting.</dd>
                         </dl>
                     </div>
                 </article>
@@ -115,6 +165,11 @@
                             and overshoot without extra keyframes.
                         </p>
 
+                        <div class="tech-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Unity</span>
+                        </div>
+
                         <dl class="kv">
                             <dt>Why</dt>
                             <dd>Keyframed motion can feel rigid without a professional and takes a lot of time to tweak.
@@ -128,42 +183,48 @@
                     </div>
                 </article>
 
-                <!-- <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 3">
+                <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 3">
                     <div class="project-media">
                         <video autoplay muted loop playsinline preload="metadata"
-                            poster="docs/images/scriptinglang_poster.jpg">
-                            <source src="docs/videos/scriptinglang_demo.mp4" type="video/mp4">
+                            poster="docs/images/ditherdemo_poster.jpg">
+                            <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
                         </video>
                         <span class="badge">Preview</span>
                     </div>
 
                     <div class="project-body">
                         <header class="project-header">
-                            <h3 class="project-title">Lightweight In-Game Scripting Language</h3>
-                            <a class="btn project-cta" href="https://github.com/cannoli-cat/ingame-scripting"
+                            <h3 class="project-title">Stylized Pixel Art Shaders</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite"
                                 target="_blank">
                                 View on GitHub
                             </a>
                         </header>
 
                         <p class="blurb">
-                            A custom interpreter for a loosely typed, in-game scripting language with support for
-                            <code>if</code> statements, basic math, and variables. Designed for a hacking-sim style
-                            game.
+                            A GPU-accelerated rendering system implementing real-time dithering, palette manipulation,
+                            and procedural generation using HLSL compute shaders.
                         </p>
+
+                        <div class="tech-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">HLSL</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Compute Shaders</span>
+                        </div>
 
                         <dl class="kv">
                             <dt>Why</dt>
-                            <dd>Give players the feel of real coding without requiring a full-blown language.</dd>
+                            <dd>Pixel-art effects often need hand-drawn assets which slows iteration.
+                            </dd>
                             <dt>What</dt>
-                            <dd>Lexer, parser, and interpreter in C# with identifiers, literals, operators, and control
-                                flow.
+                            <dd>Real-time shaders for dithering, palette swaps, sharpness, & procedural generators.
                             </dd>
                             <dt>Impact</dt>
-                            <dd>Enables emergent player solutions and replayability through scripting.</dd>
+                            <dd>Offloads work to the GPU which means faster iteration and experimentation.</dd>
                         </dl>
                     </div>
-                </article> -->
+                </article>
             </div>
 
             <button class="carousel-btn prev" aria-label="Previous project" type="button">‹</button>
@@ -175,21 +236,46 @@
 
     <section id="games">
         <h2>Games</h2>
-        <div class="games-scroll">
-            <iframe src="https://itch.io/embed/3935625" width="552" height="167" frameborder="0"><a
-                    href="https://cannolicat.itch.io/six-omens">Six Omens</a></iframe>
+        <p class="section-intro">Created & shipped during game jams, each built under tight deadlines from scratch.</p>
+        <div class="games-grid">
+            <a href="https://cannolicat.itch.io/six-omens" target="_blank" class="game-card">
+                <div class="game-card-img">
+                    <img src="docs/images/six_omens.png" alt="Six Omens" />
+                </div>
+                <div class="game-card-inner">
+                    <div class="game-info">
+                        <h3>Six Omens</h3>
+                        <p class="game-desc">A dark, atmospheric card game.</p>
+                        <span class="game-link-text">Play on itch.io &rarr;</span>
+                    </div>
+                </div>
+            </a>
 
-            <iframe frameborder="0"
-                src="https://itch.io/embed/3776284?bg_color=181a1b&fg_color=e4e4e4&link_color=4aa3df&border_color=333333"
-                width="552" height="167">
-                <a href="https://cannolicat.itch.io/apogee-logistics">Apogee Logistics</a>
-            </iframe>
+            <a href="https://cannolicat.itch.io/apogee-logistics" target="_blank" class="game-card">
+                <div class="game-card-img">
+                    <img src="docs/images/apogee_logistics.png" alt="Apogee Logistics" />
+                </div>
+                <div class="game-card-inner">
+                    <div class="game-info">
+                        <h3>Apogee Logistics</h3>
+                        <p class="game-desc">A space logistics game.</p>
+                        <span class="game-link-text">Play on itch.io &rarr;</span>
+                    </div>
+                </div>
+            </a>
 
-            <iframe frameborder="0"
-                src="https://itch.io/embed/3060292?bg_color=181a1b&fg_color=e4e4e4&link_color=4aa3df&border_color=333333"
-                width="552" height="167">
-                <a href="https://cannolicat.itch.io/dead-silent">Dead Silent</a>
-            </iframe>
+            <a href="https://cannolicat.itch.io/dead-silent" target="_blank" class="game-card">
+                <div class="game-card-img">
+                    <img src="docs/images/dead_silent.png" alt="Dead Silent" />
+                </div>
+                <div class="game-card-inner">
+                    <div class="game-info">
+                        <h3>Dead Silent</h3>
+                        <p class="game-desc">A tense space horror experience.</p>
+                        <span class="game-link-text">Play on itch.io &rarr;</span>
+                    </div>
+                </div>
+            </a>
         </div>
         <footer>
             <p>View all my games on <a href="https://cannolicat.itch.io" target="_blank">itch.io</a>.</p>
@@ -197,14 +283,54 @@
     </section>
 
     <section id="contact">
-        <footer>
-            <p>Contact: <a href="mailto:wolfetyler0115@gmail.com">wolfetyler0115@gmail.com</a> |
-                <a href="https://www.linkedin.com/in/tyler-wolfe-24981124a">LinkedIn</a>
-            </p>
-        </footer>
+        <div class="contact-content">
+            <h2>Get In Touch</h2>
+            <p>I'm actively looking for SWE and game development internships. I'd love to chat!</p>
+            <div class="contact-links">
+                <a href="mailto:wolfetyler0115@gmail.com" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                        style="vertical-align: -3px; margin-right: 8px;">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    wolfetyler0115@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/tyler-wolfe-24981124a" target="_blank" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                        style="vertical-align: -3px; margin-right: 8px;">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/cannoli-cat" target="_blank" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                        style="vertical-align: -3px; margin-right: 8px;">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
     </section>
 
     <script>
+        (() => {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const links = document.querySelector('.nav-links');
+            if (toggle && links) {
+                toggle.addEventListener('click', () => {
+                    links.classList.toggle('active');
+                    toggle.classList.toggle('open');
+                });
+                links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                    links.classList.remove('active');
+                    toggle.classList.remove('open');
+                }));
+            }
+        })();
+
         (() => {
             const carousel = document.querySelector('.carousel');
             const track = carousel.querySelector('.carousel-track');
@@ -388,6 +514,19 @@
             slides.forEach((s, i) => s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true'));
             update();
             startAuto(true);
+        })();
+
+        (() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         })();
     </script>
 </body>
