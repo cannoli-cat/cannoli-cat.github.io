@@ -99,43 +99,45 @@
         <div class="carousel" aria-roledescription="carousel">
             <div class="carousel-track" role="group" aria-label="Project slides">
                 <article class="project-card slide" aria-roledescription="slide" aria-label="1 of 3">
-                    <div class="project-media project-media-placeholder">
-                        <div class="placeholder-content">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                                <line x1="14.5" y1="4" x2="9.5" y2="20" stroke-dasharray="2 2"></line>
-                            </svg>
-                            <span>In Development</span>
-                        </div>
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
+                            poster="docs/images/weftdemo_poster.jpg">
+                            <source src="docs/videos/weft-demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
                     </div>
 
                     <div class="project-body">
                         <header class="project-header">
-                            <h3 class="project-title">Weft, A Lightweight In-Game Scripting Language</h3>
+                            <h3 class="project-title">Weft, An In-Game Scripting Language</h3>
                             <a class="btn project-cta" href="https://github.com/cannoli-cat/Weft" target="_blank">
                                 View on GitHub
                             </a>
                         </header>
 
                         <p class="blurb">
-                            A loosely typed, in-game scripting language with support for
-                            <code>if</code> statements, basic math, variables, and more.
+                            A sandboxed scripting language and bytecode VM for Unity. Scripts compile to bytecode and
+                            run on a gas-limited stack
+                            machine with closures, cooperative multitasking, and a modular runtime that lets you toggle
+                            language features
+                            per-project.
                         </p>
 
                         <div class="tech-tags">
                             <span class="tag">C#</span>
-                            <span class="tag">Interpreter Design</span>
-                            <span class="tag">Lexer/Parser</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Bytecode VM</span>
+                            <span class="tag">Compiler Design</span>
                         </div>
 
                         <dl class="kv">
                             <dt>Why</dt>
-                            <dd>Give players the feel of real coding without requiring a full-blown language.</dd>
+                            <dd>Let players and designers write real game logic at runtime without exposing a full
+                                language or risking infinite loops.</dd>
                             <dt>What</dt>
-                            <dd>Lexer, parser, and interpreter in C# with identifiers, literals, operators, and control
-                                flow.
+                            <dd>A complete pipeline from lexer to parser to compiler to stack-based VM, with closures,
+                                upvalue tracking, process
+                                scheduling, and an attribute based binding system for exposing C# to scripts.
                             </dd>
                             <dt>Impact</dt>
                             <dd>Enables emergent player solutions and replayability through scripting.</dd>
@@ -145,7 +147,7 @@
 
                 <article class="project-card slide" aria-roledescription="slide" aria-label="2 of 3">
                     <div class="project-media">
-                        <video autoplay muted loop playsinline preload="metadata"
+                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
                             poster="docs/images/procanim_poster.jpg">
                             <source src="docs/videos/procanim_demo.mp4" type="video/mp4">
                         </video>
@@ -186,7 +188,7 @@
 
                 <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 3">
                     <div class="project-media">
-                        <video autoplay muted loop playsinline preload="metadata"
+                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
                             poster="docs/images/ditherdemo_poster.jpg">
                             <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
                         </video>

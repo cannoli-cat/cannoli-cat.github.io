@@ -460,6 +460,7 @@ footer {
     object-fit: cover;
     object-position: center;
     display: block;
+    pointer-events: none;
 }
 
 .project-media-placeholder {
@@ -487,9 +488,10 @@ footer {
 
 .project-body {
     display: grid;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr;
     row-gap: 16px;
     min-width: 0;
+    align-content: start;
 }
 
 .project-header {
