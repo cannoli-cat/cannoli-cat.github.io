@@ -190,11 +190,13 @@ section {
     padding: 80px 36px;
 }
 
-section:nth-child(even) {
+#education,
+#games {
     background: rgba(37, 37, 37, 0.5);
 }
 
-section:nth-child(odd) {
+#projects,
+#contact {
     background: var(--bg);
 }
 
@@ -349,44 +351,6 @@ footer {
 .about-links .btn {
     padding: 8px 20px;
     font-size: 14px;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-}
-
-.skill-category {
-    background: rgba(34, 36, 38, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(74, 163, 223, 0.2);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.skill-category:hover {
-    transform: translateY(-4px);
-    border-color: rgba(74, 163, 223, 0.4);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.skill-category h3 {
-    font-size: 16px;
-    color: var(--brand);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.skill-category p {
-    margin: 0;
-    color: var(--muted);
-    line-height: 1.6;
-    font-size: 15px;
 }
 
 .education-card {
@@ -912,24 +876,6 @@ footer {
         justify-content: center;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .skill-category {
-        padding: 16px;
-    }
-
-    .skill-category h3 {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    .skill-category p {
-        font-size: 14px;
-    }
-
     .education-card {
         padding: 18px;
     }
@@ -1037,6 +983,10 @@ footer {
 
     .kv {
         grid-template-columns: 1fr;
+    }
+
+    .kv dt {
+        margin-top: 10px;
     }
 
     .kv dd {
