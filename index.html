@@ -21,8 +21,10 @@
                 <span></span>
             </button>
             <ul class="nav-links">
+                <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="https://github.com/cannoli-cat" target="_blank">GitHub</a></li>
             </ul>
         </div>
@@ -35,6 +37,7 @@
             <p class="hero-tagline">I like to make games, and the tools that make them better.</p>
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
             <div class="hero-socials">
                 <a href="https://github.com/cannoli-cat" target="_blank" aria-label="GitHub">
@@ -215,7 +218,7 @@
     <section id="games">
         <h2>Games</h2>
         <div class="games-grid">
-            <a href="https://cannolicat.itch.io/six-omens" target="_blank" class="game-card">
+            <div class="game-card">
                 <div class="game-card-img">
                     <img src="docs/images/six_omens.png" alt="Six Omens" />
                 </div>
@@ -225,12 +228,17 @@
                         <p class="game-desc">A tense guessing game made for Jamsepticeye.
                             Answer the phone, read the omens, and decide: will they live or die?
                         </p>
-                        <span class="game-link-text">Play on itch.io &rarr;</span>
+                        <div class="game-links">
+                            <a href="https://cannolicat.itch.io/six-omens" target="_blank" class="game-link-text">Play
+                                on itch.io &rarr;</a>
+                            <a href="https://github.com/cannoli-cat/Six-Omens" target="_blank"
+                                class="game-link-text">GitHub &rarr;</a>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://cannolicat.itch.io/apogee-logistics" target="_blank" class="game-card">
+            <div class="game-card">
                 <div class="game-card-img">
                     <img src="docs/images/apogee_logistics.png" alt="Apogee Logistics" />
                 </div>
@@ -239,12 +247,15 @@
                         <h3>Apogee Logistics</h3>
                         <p class="game-desc">Made for GMTK Game Jam 2025. A physics-based orbital game where
                             you slingshot using gravity to deliver cargo, rescue ships, and outrun the law.</p>
-                        <span class="game-link-text">Play on itch.io &rarr;</span>
+                        <div class="game-links">
+                            <a href="https://cannolicat.itch.io/apogee-logistics" target="_blank"
+                                class="game-link-text">Play on itch.io &rarr;</a>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://cannolicat.itch.io/dead-silent" target="_blank" class="game-card">
+            <div class="game-card">
                 <div class="game-card-img">
                     <img src="docs/images/dead_silent.png" alt="Dead Silent" />
                 </div>
@@ -254,10 +265,13 @@
                         <p class="game-desc">Made for Cosmic Horror Jam III. Sent to an asteroid belt,
                             your only tool is a scanner. Inspect asteroids, read the output, and report. Try not to
                             think about what's out there.</p>
-                        <span class="game-link-text">Play on itch.io &rarr;</span>
+                        <div class="game-links">
+                            <a href="https://cannolicat.itch.io/dead-silent" target="_blank" class="game-link-text">Play
+                                on itch.io &rarr;</a>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
         <footer>
             <p>View all my games on <a href="https://cannolicat.itch.io" target="_blank">itch.io</a>.</p>
@@ -267,7 +281,6 @@
     <section id="contact">
         <div class="contact-content">
             <h2>Get In Touch</h2>
-            <p>I'm looking for SWE and game development internships. I'd love to chat!</p>
             <div class="contact-links">
                 <a href="mailto:wolfetyler0115@gmail.com" class="btn btn-primary">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
