@@ -214,7 +214,7 @@ footer {
 }
 
 .hero {
-    min-height: 60vh;
+    min-height: 42vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -847,7 +847,7 @@ footer {
     }
 
     .hero {
-        min-height: 50vh;
+        min-height: 38vh;
     }
 
     .hero-title {
@@ -856,10 +856,6 @@ footer {
 
     .hero-subtitle {
         font-size: 18px;
-    }
-
-    .hero-tagline {
-        font-size: 16px;
     }
 
     .scroll-indicator {
