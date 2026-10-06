@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Tyler Wolfe | Portfolio</title>
-    <meta name="description" content="Tyler Wolfe - CS student building compilers, web tools, and games." />
+    <meta name="description" content="Tyler Wolfe - CS student building compilers, real-time rendering tools, web apps, and games." />
     <meta property="og:title" content="Tyler Wolfe | Portfolio" />
-    <meta property="og:description" content="CS student building compilers, web tools, and games." />
+    <meta property="og:description" content="CS student building compilers, real-time rendering tools, web apps, and games." />
     <meta property="og:image" content="https://cannoli-cat.github.io/docs/images/og-preview.png" />
     <meta property="og:url" content="https://cannoli-cat.github.io/" />
     <link rel="icon" href="docs/images/favicon.ico" />
@@ -88,7 +88,97 @@
 
         <div class="carousel" aria-roledescription="carousel">
             <div class="carousel-track" role="group" aria-label="Project slides">
-                <article class="project-card slide" aria-roledescription="slide" aria-label="1 of 4">
+                <article class="project-card slide" aria-roledescription="slide" aria-label="1 of 5">
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
+                            poster="docs/images/black-hole-poster.jpg">
+                            <source src="docs/videos/black-hole-demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
+                    </div>
+
+                    <div class="project-body">
+                        <header class="project-header">
+                            <h3 class="project-title">Black Hole Renderer</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/black-hole-renderer"
+                                target="_blank">
+                                View on GitHub
+                            </a>
+                        </header>
+
+                        <p class="blurb">
+                            A real-time, ray-marched black hole for Unity's URP: light bends around a spinning black
+                            hole, lensing the skybox and a glowing accretion disk.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">HLSL</span>
+                            <span class="tag">Compute Shaders</span>
+                        </div>
+
+                        <dl class="kv">
+                            <dt>Why</dt>
+                            <dd>Wanted a physically inspired black hole for space games that runs in real time.</dd>
+                            <dt>What</dt>
+                            <dd>Ray marching through curved spacetime with gravitational lensing, an animated accretion
+                                disk with temperature-based color and relativistic beaming, and fragment and compute
+                                shader paths with a lighter WebGL mode.</dd>
+                            <dt>Impact</dt>
+                            <dd>Powers the black hole in my GMTK 2026 game Accretion, and is installable as a Unity
+                                package for future projects.</dd>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project-card slide" aria-roledescription="slide" aria-label="2 of 5">
+                    <div class="project-media">
+                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
+                            poster="docs/images/weftdemo_poster.png">
+                            <source src="docs/videos/weft-demo.mp4" type="video/mp4">
+                        </video>
+                        <span class="badge">Preview</span>
+                    </div>
+
+                    <div class="project-body">
+                        <header class="project-header">
+                            <h3 class="project-title">Weft, An In-Game Scripting Language</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/Weft" target="_blank">
+                                View on GitHub
+                            </a>
+                        </header>
+
+                        <p class="blurb">
+                            A sandboxed scripting language and bytecode VM for Unity. Scripts compile to bytecode and
+                            run on a gas-limited stack
+                            machine with closures, cooperative multitasking, and a modular runtime that lets you toggle
+                            language features
+                            per-project.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Bytecode VM</span>
+                            <span class="tag">Compiler Design</span>
+                        </div>
+
+                        <dl class="kv">
+                            <dt>Why</dt>
+                            <dd>Let players and designers write real game logic at runtime without exposing a full
+                                language or risking infinite loops.</dd>
+                            <dt>What</dt>
+                            <dd>A complete pipeline from lexer to parser to compiler to stack-based VM, with closures,
+                                upvalue tracking, process
+                                scheduling, and an attribute based binding system for exposing C# to scripts.
+                            </dd>
+                            <dt>Impact</dt>
+                            <dd>Enables emergent player solutions and replayability through scripting.</dd>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 5">
                     <div class="project-media">
                         <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
                             poster="docs/images/plusc_poster.jpg">
@@ -136,54 +226,51 @@
                         </dl>
                     </div>
                 </article>
-                <article class="project-card slide" aria-roledescription="slide" aria-label="2 of 4">
+
+                <article class="project-card slide" aria-roledescription="slide" aria-label="4 of 5">
                     <div class="project-media">
                         <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
-                            poster="docs/images/weftdemo_poster.jpg">
-                            <source src="docs/videos/weft-demo.mp4" type="video/mp4">
+                            poster="docs/images/stylized-rendering-poster.jpg">
+                            <source src="docs/videos/stylized-rendering-demo.mp4" type="video/mp4">
                         </video>
                         <span class="badge">Preview</span>
                     </div>
 
                     <div class="project-body">
                         <header class="project-header">
-                            <h3 class="project-title">Weft, An In-Game Scripting Language</h3>
-                            <a class="btn project-cta" href="https://github.com/cannoli-cat/Weft" target="_blank">
+                            <h3 class="project-title">Stylized Rendering</h3>
+                            <a class="btn project-cta" href="https://github.com/cannoli-cat/stylized-rendering"
+                                target="_blank">
                                 View on GitHub
                             </a>
                         </header>
 
                         <p class="blurb">
-                            A sandboxed scripting language and bytecode VM for Unity. Scripts compile to bytecode and
-                            run on a gas-limited stack
-                            machine with closures, cooperative multitasking, and a modular runtime that lets you toggle
-                            language features
-                            per-project.
+                            A library of stylized screen effects for Unity's URP: hand-drawn contour lines, dithering,
+                            and palette mapping, built on Unity 6's RenderGraph and shipped as an installable package.
                         </p>
 
                         <div class="tech-tags">
                             <span class="tag">C#</span>
-                            <span class="tag">Unity</span>
-                            <span class="tag">Bytecode VM</span>
-                            <span class="tag">Compiler Design</span>
+                            <span class="tag">HLSL</span>
                         </div>
 
                         <dl class="kv">
                             <dt>Why</dt>
-                            <dd>Let players and designers write real game logic at runtime without exposing a full
-                                language or risking infinite loops.</dd>
+                            <dd>Reuse distinct visual styles, from pen and ink to 1-bit pixel art, across games
+                                without rewriting post-processing each time.</dd>
                             <dt>What</dt>
-                            <dd>A complete pipeline from lexer to parser to compiler to stack-based VM, with closures,
-                                upvalue tracking, process
-                                scheduling, and an attribute based binding system for exposing C# to scripts.
-                            </dd>
+                            <dd>Edge-detected contour lines with animated line boil, Bayer and blue-noise dithering
+                                anchored to camera rotation, and perceptual (OKLab) palette matching, on shared base
+                                classes so each new effect is just a settings class and a shader.</dd>
                             <dt>Impact</dt>
-                            <dd>Enables emergent player solutions and replayability through scripting.</dd>
+                            <dd>Stackable, drop-in effects from a single Git URL, giving every project a consistent
+                                look.</dd>
                         </dl>
                     </div>
                 </article>
 
-                <article class="project-card slide" aria-roledescription="slide" aria-label="3 of 4">
+                <article class="project-card slide" aria-roledescription="slide" aria-label="5 of 5">
                     <div class="project-media">
                         <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
                             poster="docs/images/procanim_poster.jpg">
@@ -208,7 +295,6 @@
 
                         <div class="tech-tags">
                             <span class="tag">C#</span>
-                            <span class="tag">Unity</span>
                         </div>
 
                         <dl class="kv">
@@ -220,49 +306,6 @@
                                 time.</dd>
                             <dt>Impact</dt>
                             <dd>More lifelike motion with less manual tweaking.</dd>
-                        </dl>
-                    </div>
-                </article>
-
-                <article class="project-card slide" aria-roledescription="slide" aria-label="4 of 4">
-                    <div class="project-media">
-                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata"
-                            poster="docs/images/ditherdemo_poster.jpg">
-                            <source src="docs/videos/ditherdemo.mp4" type="video/mp4">
-                        </video>
-                        <span class="badge">Preview</span>
-                    </div>
-
-                    <div class="project-body">
-                        <header class="project-header">
-                            <h3 class="project-title">Stylized Pixel Art Shaders</h3>
-                            <a class="btn project-cta" href="https://github.com/cannoli-cat/pixel-stylized-shader-suite"
-                                target="_blank">
-                                View on GitHub
-                            </a>
-                        </header>
-
-                        <p class="blurb">
-                            A GPU-accelerated rendering system implementing real-time dithering, palette manipulation,
-                            and procedural generation using HLSL compute shaders.
-                        </p>
-
-                        <div class="tech-tags">
-                            <span class="tag">C#</span>
-                            <span class="tag">HLSL</span>
-                            <span class="tag">Unity</span>
-                            <span class="tag">Compute Shaders</span>
-                        </div>
-
-                        <dl class="kv">
-                            <dt>Why</dt>
-                            <dd>Pixel-art effects often need hand-drawn assets which slows iteration.
-                            </dd>
-                            <dt>What</dt>
-                            <dd>Real-time shaders for dithering, palette swaps, sharpness, & procedural generators.
-                            </dd>
-                            <dt>Impact</dt>
-                            <dd>Offloads work to the GPU which means faster iteration and experimentation.</dd>
                         </dl>
                     </div>
                 </article>
